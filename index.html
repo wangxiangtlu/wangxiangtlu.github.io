@@ -333,134 +333,110 @@
       
         
           
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/20/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="wangxiangtlu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="时光">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/09/20/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-20T19:32:47+08:00">
-                2017-09-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <h3 id="0-谈谈对前端安全的理解，有什么，怎么防范"><a href="#0-谈谈对前端安全的理解，有什么，怎么防范" class="headerlink" title="0.谈谈对前端安全的理解，有什么，怎么防范"></a>0.谈谈对前端安全的理解，有什么，怎么防范</h3><p>前端安全问题主要有XSS、CSRF攻击</p>
+<h2 id="XSS：跨站脚本攻击"><a href="#XSS：跨站脚本攻击" class="headerlink" title="XSS：跨站脚本攻击"></a>XSS：跨站脚本攻击</h2><p>它允许用户将恶意代码植入到提供给其他用户使用的页面中，可以简单的理解为一种javascript代码注入。<br>XSS的防御措施：</p>
+<p>1.过滤转义输入输出<br>2.避免使用eval、new Function等执行字符串的方法，除非确定字符串和用户输入无关<br>3.使用cookie的httpOnly属性，加上了这个属性的cookie字段，js是无法进行读写的<br>4.使用innerHTML、document.write的时候，如果数据是用户输入的，那么需要对象关键字符进行过滤与转义</p>
+<h2 id="CSRF：跨站请求伪造"><a href="#CSRF：跨站请求伪造" class="headerlink" title="CSRF：跨站请求伪造"></a>CSRF：跨站请求伪造</h2><p>其实就是网站中的一些提交行为，被黑客利用，在你访问黑客的网站的时候进行操作，会被操作到其他网站上<br>CSRF防御措施：</p>
+<p>1.检测http referer是否是同域名<br>2.避免登录的session长时间存储在客户端中<br>3.关键请求使用验证码或者token机制<br>4.其他的一些攻击方法还有HTTP劫持、界面操作劫持</p>
+<h1 id="1-使用箭头函数需要注意的地方"><a href="#1-使用箭头函数需要注意的地方" class="headerlink" title="1.使用箭头函数需要注意的地方"></a>1.使用箭头函数需要注意的地方</h1><p>当要求动态上下文的时候，你就不能使用箭头函数，比如：定义方法，用构造器创建对象，处理时间时用 this 获取目标。</p>
+<h1 id="2-webpack-load的原理"><a href="#2-webpack-load的原理" class="headerlink" title="2.webpack.load的原理"></a>2.webpack.load的原理</h1><p>loaders是你用在app源码上的转换元件。他们是用node.js运行的，把源文件作为参数，返回新的资源的函数。</p>
+<h1 id="3-ES6-let、const"><a href="#3-ES6-let、const" class="headerlink" title="3.ES6 let、const"></a>3.ES6 let、const</h1><h2 id="let"><a href="#let" class="headerlink" title="let"></a>let</h2><p>let是更完美的var</p>
+<p>let声明的变量拥有块级作用域,let声明仍然保留了提升的特性，但不会盲目提升。<br>let声明的全局变量不是全局对象的属性。不可以通过window.变量名的方式访问<br>形如for (let x…)的循环在每次迭代时都为x创建新的绑定<br>let声明的变量直到控制流到达该变量被定义的代码行时才会被装载，所以在到达之前使用该变量会触发错误。</p>
+<h2 id="const"><a href="#const" class="headerlink" title="const"></a>const</h2><p>定义常量值，不可以重新赋值，但是如果值是一个对象，可以改变对象里的属性值</p>
+<p>1  const OBJ = {“a”:1, “b”:2};<br>2  OBJ.a = 3;<br>3  OBJ = {};// 重新赋值，报错！<br>4  console.log(OBJ.a); // 3</p>
+<h1 id="4-CSS3-box-sizing的作用"><a href="#4-CSS3-box-sizing的作用" class="headerlink" title="4.CSS3 box-sizing的作用"></a>4.CSS3 box-sizing的作用</h1><p>设置CSS盒模型为标准模型或IE模型。标准模型的宽度只包括content，二IE模型包括border和padding</p>
+<p>box-sizing属性可以为三个值之一：</p>
+<p>1.content-box，默认值，border和padding不计算入width之内<br>2.padding-box，padding计算入width内<br>3.border-box，border和padding计算入width之内</p>
+<h1 id="5-说说HTML5中有趣的标签（新标签及语义化）"><a href="#5-说说HTML5中有趣的标签（新标签及语义化）" class="headerlink" title="5.说说HTML5中有趣的标签（新标签及语义化）"></a>5.说说HTML5中有趣的标签（新标签及语义化）</h1><p>如果代码写的语义化，有利于SEO。搜索引擎就会很容易的读懂该网页要表达的意思。例如文本模块要有大标题，合理利用h1-h6，列表形式的代码使用ul或ol，重要的文字使用strong等等。总之就是要充分利用各种HTML标签完成他们本职的工作</p>
+<h1 id="6-git命令，如何批量删除分支"><a href="#6-git命令，如何批量删除分支" class="headerlink" title="6.git命令，如何批量删除分支"></a>6.git命令，如何批量删除分支</h1><p>git branch |grep ‘branchName’ |xargs git branch -D,从分支列表中匹配到指定分支，然后一个一个(分成小块)传递给删除分支的命令，最后进行删除。(参考这里)</p>
+<p>7.创建对象的三种方法<br>第一种方式，字面量<br>1  var o1 = {name: “o1”}<br>2  var o2 = new Object({name: “o2”})</p>
+<p>第二种方式，通过构造函数<br>1 var M = function(name){ this.name = name }<br>2 var o3 = new M(“o3”)</p>
+<p>第三种方式，Object.create<br>1 var  p = {name: “p”}<br>2 var o4 = Object.create(p)</p>
+<p>新创建的对o4的原型就是p，同时o4也拥有了属性name</p>
+<h1 id="8-JS实现继承的几种方式"><a href="#8-JS实现继承的几种方式" class="headerlink" title="8.JS实现继承的几种方式"></a>8.JS实现继承的几种方式</h1><h2 id="借用构造函数实现继承"><a href="#借用构造函数实现继承" class="headerlink" title="借用构造函数实现继承"></a>借用构造函数实现继承</h2><p>function Parent1(){<br>    this.name = “parent1”<br>}<br>function Child1(){<br>    Parent1.call(this);<br>    this.type = “child1”;<br>}<br>缺点：Child1无法继承Parent1的原型对象，并没有真正的实现继承（部分继承）</p>
+<h2 id="借用原型链实现继承"><a href="#借用原型链实现继承" class="headerlink" title="借用原型链实现继承"></a>借用原型链实现继承</h2><p>function Parent2(){<br>    this.name = “parent2”;<br>    this.play = [1,2,3];<br>}<br>function Child2(){<br>    this.type = “child2”;<br>}<br>Child2.prototype = new Parent2();<br>缺点：原型对象的属性是共享的</p>
+<h2 id="组合式继承"><a href="#组合式继承" class="headerlink" title="组合式继承"></a>组合式继承</h2><p>function Parent3(){<br>    this.name = “parent3”;<br>    this.play = [1,2,3];<br>}<br>function Child3(){<br>    Parent3.call(this);<br>    this.type = “child3”;<br>}<br>Child3.prototype = Object.create(Parent3.prototype);<br>Child3.prototype.constructor = Child3;</p>
+<h2 id="9-当new-Foo-时发生了什么"><a href="#9-当new-Foo-时发生了什么" class="headerlink" title="9.当new Foo()时发生了什么"></a>9.当new Foo()时发生了什么</h2><p>1.创建了一个新对象<br>2.将this指向这个新对象<br>3.执行构造函数里面的代码<br>4.返回新对象（this）</p>
+<h2 id="10-你做过哪些性能优化"><a href="#10-你做过哪些性能优化" class="headerlink" title="10.你做过哪些性能优化"></a>10.你做过哪些性能优化</h2><p>雪碧图，移动端响应式图片，静态资源CDN，减少Dom操作（事件代理、fragment），压缩JS和CSS、HTML等，DNS预解析</p>
+<h2 id="11-浏览器渲染原理"><a href="#11-浏览器渲染原理" class="headerlink" title="11.浏览器渲染原理"></a>11.浏览器渲染原理</h2><p>1.HTML被解析成DOM Tree，CSS被解析成CSS Rule Tree<br>2.把DOM Tree和CSS Rule Tree经过整合生成Render Tree（布局阶段）<br>3.元素按照算出来的规则，把元素放到它该出现的位置，通过显卡画到屏幕上</p>
+<h2 id="12-前端路由的原理"><a href="#12-前端路由的原理" class="headerlink" title="12.前端路由的原理"></a>12.前端路由的原理</h2><p><strong>什么是路由？</strong>简单的说，路由是根据不同的 url 地址展示不同的内容或页面</p>
+<p><strong>使用场景？</strong>前端路由更多用在单页应用上, 也就是SPA, 因为单页应用, 基本上都是前后端分离的, 后端自然也就不会给前端提供路由。</p>
+<p>前端的路由和后端的路由在实现技术上不一样，但是原理都是一样的。在 HTML5 的 history API 出现之前，前端的路由都是通过 hash 来实现的，hash 能兼容低版本的浏览器。</p>
+<h2 id="两种实现前端路由的方式"><a href="#两种实现前端路由的方式" class="headerlink" title="两种实现前端路由的方式"></a>两种实现前端路由的方式</h2><p><strong>HTML5 History</strong>两个新增的API：history.pushState 和 history.replaceState，两个 API 都会操作浏览器的历史记录，而不会引起页面的刷新。</p>
+<p><strong>Hash</strong>就是url 中看到 # ,我们需要一个根据监听哈希变化触发的事件( hashchange) 事件。我们用 window.location 处理哈希的改变时不会重新渲染页面，而是当作新页面加到历史记录中，这样我们跳转页面就可以在 hashchange 事件中注册 ajax 从而改变页面内容。</p>
+<p><strong>优点</strong><br>从性能和用户体验的层面来比较的话，后端路由每次访问一个新页面的时候都要向服务器发送请求，然后服务器再响应请求，这个过程肯定会有延迟。而前端路由在访问一个新页面的时候仅仅是变换了一下路径而已，没有了网络延迟，对于用户体验来说会有相当大的提升。</p>
+<p><strong>缺点</strong><br>使用浏览器的前进，后退键的时候会重新发送请求，没有合理地利用缓存。</p>
+<h1 id="13-Restful-API是什么"><a href="#13-Restful-API是什么" class="headerlink" title="13.Restful API是什么"></a>13.Restful API是什么</h1><p>Restful的意思就是表现层状态转化。<br>“表现层”其实指的是”资源”（Resources）的”表现层”，把”资源”具体呈现出来的形式，叫做它的”表现层”（Representation）。<br>所谓”资源”，就是网络上的一个实体，或者说是网络上的一个具体信息。它可以是一段文本、一张图片、一首歌曲、一种服务，总之就是一个具体的实在，每一个URI代表一种资源。<br>如果客户端想要操作服务器，必须通过某种手段，让服务器端发生”状态转化”（State Transfer）。而这种转化是建立在表现层之上的，所以就是”表现层状态转化”。<br>Restful就是客户端和服务器之间，传递这种资源的某种表现层<br>客户端通过四个HTTP动词，对服务器端资源进行操作，实现”表现层状态转化”<br>Restful API就是符合Restful架构的API设计。</p>
+<p><strong>Restful API一些具体实践</strong>：</p>
+<p>1.应该尽量将API部署在专用域名之下。如果确定API很简单，不会有进一步扩展，可以考虑放在主域名下。<br>2.应该将API的版本号放入URL。<br>3.对于资源的具体操作类型，由HTTP动词表示<br>4.如果记录数量很多，服务器不可能都将它们返回给用户。API应该提供参数，过滤返回结果<br>5.如果状态码是4xx，就应该向用户返回出错信息。一般来说，返回的信息中将error作为键名<br>…..</p>
+<h1 id="14-script标签的defer、async的区别"><a href="#14-script标签的defer、async的区别" class="headerlink" title="14.script标签的defer、async的区别"></a>14.script标签的defer、async的区别</h1><p>defer是在HTML解析完之后才会执行，如果是多个，按照加载的顺序依次执行<br>async是在加载完成后立即执行，如果是多个，执行顺序和加载顺序无关</p>
+<h1 id="15-同源与跨域"><a href="#15-同源与跨域" class="headerlink" title="15.同源与跨域"></a>15.同源与跨域</h1><h2 id="什么是同源策略？"><a href="#什么是同源策略？" class="headerlink" title="什么是同源策略？"></a>什么是同源策略？</h2><p>限制从一个源加载的文档或脚本如何与来自另一个源的资源进行交互。<br>一个源指的是主机名、协议和端口号的组合，必须相同</p>
+<h2 id="跨域通信的几种方式"><a href="#跨域通信的几种方式" class="headerlink" title="跨域通信的几种方式"></a>跨域通信的几种方式</h2><p>1.JSONP<br>2.Hash<br>3.postMessage<br>4.WebSocket<br>5.CORS</p>
+<h2 id="JSONP原理"><a href="#JSONP原理" class="headerlink" title="JSONP原理"></a>JSONP原理</h2><p>基本原理：利用script标签的异步加载特性实现<br>给服务端传一个回调函数，服务器返回一个传递过去的回调函数名称的JS代码</p>
+<h1 id="16-原型与闭包相关问题"><a href="#16-原型与闭包相关问题" class="headerlink" title="16.原型与闭包相关问题"></a>16.原型与闭包相关问题</h1><h2 id="原型是什么"><a href="#原型是什么" class="headerlink" title="原型是什么"></a>原型是什么</h2><p>原型就是一个普通的对象，每个对象都有一个原型（Object除外），原型能存储我们的方法，构造函数创建出来的实例对象能够引用原型中的方法。</p>
+<h2 id="查看原型"><a href="#查看原型" class="headerlink" title="查看原型"></a>查看原型</h2><p>以前一般使用对象的<strong>proto</strong>属性，ES6推出后，推荐用Object.getPrototypeOf()方法来获取对象的原型</p>
+<h2 id="闭包是什么？"><a href="#闭包是什么？" class="headerlink" title="闭包是什么？"></a>闭包是什么？</h2><p>专业说法：当一个内部函数被其外部函数之外的变量引用时，就形成了一个闭包。</p>
+<p>还可以这么理解：<br>闭包就是一个具有封闭功能与包裹功能的结构，是为了实现具有私有访问空间的函数的，函数可以构成闭包，因为函数内部定义的数据函数外部无法访问，即函数具有封闭性；函数可以封装代码即具有包裹性，所以函数可以构成闭包。<br>创建闭包的最常见的方式就是在一个函数内创建另一个函数，通过另一个函数访问这个函数的局部变量</p>
+<h2 id="闭包的特性"><a href="#闭包的特性" class="headerlink" title="闭包的特性"></a>闭包的特性</h2><p>闭包有三个特性：</p>
+<p>1.函数嵌套函数<br>2.函数内部可以引用外部的参数和变量<br>4.参数和变量不会被垃圾回收机制回收</p>
+<h2 id="闭包有什么用，使用场景"><a href="#闭包有什么用，使用场景" class="headerlink" title="闭包有什么用，使用场景"></a>闭包有什么用，使用场景</h2><p>当我们需要在模块中定义一些变量，并希望这些变量一直保存在内存中但又不会“污染”全局的变量时，就可以用闭包来定义这个模块。</p>
+<h2 id="闭包的缺点"><a href="#闭包的缺点" class="headerlink" title="闭包的缺点"></a>闭包的缺点</h2><p>闭包的缺点就是常驻内存，会增大内存使用量，使用不当很容易造成内存泄露。</p>
+<p>函数套函数就是闭包吗？不是！，当一个内部函数被其外部函数之外的变量引用时，才会形成了一个闭包。</p>
+<h1 id="17-如何进行错误监控"><a href="#17-如何进行错误监控" class="headerlink" title="17.如何进行错误监控"></a>17.如何进行错误监控</h1><h2 id="前端错误的分类"><a href="#前端错误的分类" class="headerlink" title="前端错误的分类"></a>前端错误的分类</h2><p>即时运行错误（代码错误）<br>资源加载错误</p>
+<h2 id="错误的捕获方式"><a href="#错误的捕获方式" class="headerlink" title="错误的捕获方式"></a>错误的捕获方式</h2><p>即时运行错误的捕获方式：</p>
+<p>try…catch<br>window.onerror</p>
+<p>资源加载错误：</p>
+<p>object.onerror（如img,script）<br>performance.getEntries()<br>Error事件捕获</p>
+<p>延伸：跨域的js运行错误可以捕获吗，错误提示什么，应该怎么处理？<br>可以。<br>Script error<br>1.在script标签增加crossorigin属性<br>2.设置js资源响应头Access-Control-Allow-Orgin:*</p>
+<h2 id="上报错误的基本原理"><a href="#上报错误的基本原理" class="headerlink" title="上报错误的基本原理"></a>上报错误的基本原理</h2><p>采用Ajax通信方式上报<br>利用Image对象上报</p>
+<h1 id="18-DOM事件类"><a href="#18-DOM事件类" class="headerlink" title="18.DOM事件类"></a>18.DOM事件类</h1><h2 id="DOM事件的级别"><a href="#DOM事件的级别" class="headerlink" title="DOM事件的级别"></a>DOM事件的级别</h2><p>DOM0，element.onclick = function(){}<br>DOM2，element.addEventListener(‘click’, function(){}, false);</p>
+<p><strong>DOM事件模型是什么</strong>：指的是冒泡和捕获<br><strong>DOM事件流是什么</strong>：捕获阶段 -&gt; 目标阶段 -&gt; 冒泡阶段<br><strong>描述DOM事件捕获的具体流程</strong><br>window –&gt; document –&gt; documentElement(html标签) –&gt; body –&gt; …. –&gt; 目标对象</p>
+<h2 id="Event对象常见应用"><a href="#Event对象常见应用" class="headerlink" title="Event对象常见应用"></a>Event对象常见应用</h2><p>event.preventDefault()，阻止默认行为<br>event.stopPropagation()，阻止事件冒泡<br>event.stopImmediatePropagation()，阻止剩余的事件处理函数执行并且防止事件冒泡到DOM树上，这个方法不接受任何参数。<br>event.currentTarget，返回绑定事件的元素<br>event.target，返回触发事件的元素</p>
+<h2 id="如何自定义事件"><a href="#如何自定义事件" class="headerlink" title="如何自定义事件"></a>如何自定义事件</h2><p>Event，不能传递参数</p>
+<p>var eve = new Event(‘自定义事件名’);<br>ev.addEventListener(‘自定义事件名’, function(){<br>    console.log(‘自定义事件’)<br>});<br>ev.dispatchEvent(eve);<br>CustomEvent，还可以指定参数</p>
+<h2 id="19-本地起了一个http-server，为什么只能在同一个WIFI-局域网-上访问？"><a href="#19-本地起了一个http-server，为什么只能在同一个WIFI-局域网-上访问？" class="headerlink" title="19.本地起了一个http server，为什么只能在同一个WIFI(局域网)上访问？"></a>19.本地起了一个http server，为什么只能在同一个WIFI(局域网)上访问？</h2><p>你没有公网IP当然就不能被外网访问了。常见的WIFI情况下，一般的ip会是~192.168.0.x·这样的，只是对局域网(同WIFI下)可见，但是外网是访问不了的。（segmentfault上的答案）</p>
+<h1 id="20-深拷贝与浅拷贝"><a href="#20-深拷贝与浅拷贝" class="headerlink" title="20.深拷贝与浅拷贝"></a>20.深拷贝与浅拷贝</h1><h2 id="是什么"><a href="#是什么" class="headerlink" title="是什么"></a>是什么</h2><p>浅拷贝只复制指向某个对象的指针，而不复制对象本身，新旧对象还是共享同一块内存。但深拷贝会另外创造一个一模一样的对象，新对象跟原对象不共享内存，修改新对象不会改到原对象。</p>
+<h2 id="实现浅拷贝"><a href="#实现浅拷贝" class="headerlink" title="实现浅拷贝"></a>实现浅拷贝</h2><p>var obj1 = { a: 10, b: 20, c: 30 };<br>var obj2 = obj1;<br>obj2.b = 100;<br>console.log(obj1);<br>// { a: 10, b: 100, c: 30 } &lt;– b 被改到了<br>console.log(obj2);<br>// { a: 10, b: 100, c: 30 }</p>
+<h2 id="实现深拷贝"><a href="#实现深拷贝" class="headerlink" title="实现深拷贝"></a>实现深拷贝</h2><p>var obj1 = { a: 10, b: 20, c: 30 };<br>var obj2 = { a: obj1.a, b: obj1.b, c: obj1.c };<br>obj2.b = 100;<br>console.log(obj1);<br>// { a: 10, b: 20, c: 30 } &lt;– b 沒被改到<br>console.log(obj2);<br>// { a: 10, b: 100, c: 30 }</p>
+<h2 id="深拷贝实现方式"><a href="#深拷贝实现方式" class="headerlink" title="深拷贝实现方式"></a>深拷贝实现方式</h2><p>手动复制方式，如上面的代码，缺点就是<br>Object.assign，ES6 的新函数，可以帮助我们达成跟上面一样的功能。</p>
+<p>var obj1 = { a: 10, b: 20, c: 30 };<br>var obj2 = Object.assign({}, obj1);<br>obj2.b = 100;<br>console.log(obj1);<br>// { a: 10, b: 20, c: 30 } &lt;– 沒被改到<br>console.log(obj2);<br>// { a: 10, b: 100, c: 30 }</p>
+<p>转成 JSON 再转回来<br>用JSON.stringify把对象转成字符串，再用JSON.parse把字符串转成新的对象。<br>缺点：只有可以转成JSON格式的对象才可以这样用，像function没办法转成JSON。</p>
+<p>jquery，有提供一个$.extend可以用来做 Deep Copy。<br>lodash，也有提供_.cloneDeep用来做 Deep Copy。</p>
+<p>递归实现深拷贝<br>function clone( o ) {<br>    var temp = {};<br>    for( var k in o ) {<br>        if( typeof o[ k ] == ‘object’ ){<br>             temp[ k ] = clone( o[ k ] );<br>        } else {<br>             temp[ k ] = o[ k ];<br>        }<br>    }<br>    return temp;<br>}</p>
+<h1 id="21-如何快速合并雪碧图"><a href="#21-如何快速合并雪碧图" class="headerlink" title="21.如何快速合并雪碧图"></a>21.如何快速合并雪碧图</h1><p>Gulp：gulp-css-spriter<br>webpack：optimize-css-assets-webpack-plugin<br>Go！Png<br>在线工具</p>
+<h1 id="22-代码优化基本方法"><a href="#22-代码优化基本方法" class="headerlink" title="22.代码优化基本方法"></a>22.代码优化基本方法</h1><h2 id="减少HTTP请求"><a href="#减少HTTP请求" class="headerlink" title="减少HTTP请求"></a>减少HTTP请求</h2><p><strong>HTML优化：</strong></p>
+<p>使用语义化标签<br>减少iframe：iframe是SEO的大忌，iframe有好处也有弊端<br>避免重定向</p>
+<p><strong>CSS优化：</strong></p>
+<p>布局代码写前面<br>删除空样式<br>不滥用浮动，字体，需要加载的网络字体根据网站需求再添加<br>选择器性能优化<br>避免使用表达式，避免用id写样式</p>
+<p><strong>js优化：</strong></p>
+<p>压缩<br>减少重复代码</p>
+<p><strong>图片优化：</strong></p>
+<p>使用WebP<br>图片合并，CSS sprite技术</p>
+<p><strong>减少DOM操作</strong></p>
+<p>缓存已经访问过的元素<br>“离线”更新节点, 再将它们添加到树中<br>避免使用 JavaScript 输出页面布局–应该是 CSS 的事儿</p>
+<p><strong>使用JSON格式来进行数据交换</strong></p>
+<p><strong>使用CDN加速</strong></p>
+<p><strong>使用HTTP缓存</strong>：添加 Expires 或 Cache-Control 信息头</p>
+<p><strong>使用DNS预解析</strong><br>Chrome内置了DNS Prefetching技术, Firefox 3.5 也引入了这一特性，由于Chrome和Firefox 3.5本身对DNS预解析做了相应优化设置，所以设置DNS预解析的不良影响之一就是可能会降低Google Chrome浏览器及火狐Firefox 3.5浏览器的用户体验。</p>
+<p><strong>预解析的实现：</strong></p>
+<p>用meta信息来告知浏览器, 当前页面要做DNS预解析:<meta http-equiv="x-dns-prefetch-control" content="on"><br>在页面header中使用link标签来强制对DNS预解析: <link rel="dns-prefetch" href="http://bdimg.share.baidu.com"></p>
+<p>#<br>23.HTTPS的握手过程 #<br>1.浏览器将自己支持的一套加密规则发送给服务器。<br>2.服务器从中选出一组加密算法与HASH算法，并将自己的身份信息以证书的形式发回给浏览器。证书里面包含了网站地址，加密公钥，以及证书的颁发机构等信息。<br>3.浏览器获得网站证书之后浏览器要做以下工作</p>
+<ul>
+<li>验证证书的合法</li>
+<li>如果证书受信任，或者是用户接受了不受信的证书，浏览器会生成一串随机数的密码，并用证书中提供的公钥加密。</li>
+<li>使用约定好的HASH算法计算握手消息，并使用生成的随机数对消息进行加密，最后将之前生成的所有信息发送给服务器</li>
+<li>4.网站接收浏览器发来的数据之后要做以下的操作：</li>
+<li>使用自己的私钥将信息解密取出密码，使用密码解密浏览器发来的握手消息，并验证HASH是否与浏览器发来的一致。</li>
+<li>使用密码加密一段握手消息，发送给浏览器。</li>
+<li>5.浏览器解密并计算握手消息的HASH，如果与服务端发来的HASH一致，此时握手过程结束，之后所有的通信数据将由之前浏览器生成的随机密码并利用对称加密算法进行加密。</li>
+</ul>
+<h1 id="24-BFC相关问题"><a href="#24-BFC相关问题" class="headerlink" title="24.BFC相关问题"></a>24.BFC相关问题</h1><p>BFC(Block formatting context)直译为”块级格式化上下文”。它是一个独立的渲染区域，只有 Block-level box 参 与， 它规定了内部的 Block-level Box 如何布局，并且与这个区域外部毫不相干。</p>
+<h2 id="BFC的渲染规则"><a href="#BFC的渲染规则" class="headerlink" title="BFC的渲染规则"></a>BFC的渲染规则</h2><p>1.BFC这个元素的垂直方向的边距会发生重叠<br>2.BFC的区域不会与浮动元素的box重叠（清除浮动原理）<br>3.BFC在页面上是一个独立的容器，外面的元素不会影响它里面的元素，反过来它里面的元素也不会影响外面的元素<br>4.计算BFC的高度的时候，浮动元素也会参与计算</p>
+<h2 id="如何创建BFC？"><a href="#如何创建BFC？" class="headerlink" title="如何创建BFC？"></a>如何创建BFC？</h2><p>overflow属性不为visible<br>float属性不为none<br>position属性为absolute或fixed<br>display属性为inline-block、table-cell、table-caption、flex、inline-flex</p>
+<h2 id="BFC的使用场景"><a href="#BFC的使用场景" class="headerlink" title="BFC的使用场景"></a>BFC的使用场景</h2><p>他的很常用的一个应用场景就是解决边距重叠的问题.</p>
+<h2 id="25-响应式图片"><a href="#25-响应式图片" class="headerlink" title="25.响应式图片"></a>25.响应式图片</h2><p>1.JS或者服务端硬编码，resize事件，判断屏幕大小加载不同的图片<br>2.img srcset 方法<br>3.picture标签 -&gt; source<br>4.svg<br>5.第三方库polyfill</p>
+<h1 id="26-判断一个变量是否是数组"><a href="#26-判断一个变量是否是数组" class="headerlink" title="26.判断一个变量是否是数组"></a>26.判断一个变量是否是数组</h1><p>var a = [];<br>// 1.基于instanceof<br>a instanceof Array;<br>// 2.基于constructor<br>a.constructor === Array;<br>// 3.基于Object.prototype.isPrototypeOf<br>Array.prototype.isPrototypeOf(a);<br>// 4.基于getPrototypeOf<br>Object.getPrototypeOf(a) === Array.prototype;<br>// 5.基于Object.prototype.toString<br>Object.prototype.toString.apply(a) === ‘[object Array]’;<br>// 6.Array.isArray<br>Array.isArray([]); // true<br>以上，除了Object.prototype.toString外，其它方法都不能正确判断变量的类型。</p>
+<h1 id="27-UTF-8和Unicode的区别"><a href="#27-UTF-8和Unicode的区别" class="headerlink" title="27.UTF-8和Unicode的区别"></a>27.UTF-8和Unicode的区别</h1><p>UTF-8就是在互联网上使用最广的一种unicode的实现方式。<br>Unicode的出现是为了统一地区性文字编码方案，为解决unicode如何在网络上传输的问题，于是面向传输的众多 UTF（UCS Transfer Format）标准出现了，顾名思义，UTF-8就是每次8个位传输数据，而UTF-16就是每次16个位。<br>ASCII –&gt; 地区性编码（GBK） –&gt; Unicode –&gt; UTF-8</p>
 
           
         
@@ -541,7 +517,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
